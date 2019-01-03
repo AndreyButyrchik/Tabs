@@ -1,0 +1,126 @@
+﻿Скрипты для баша
+chmod +x ./myscript - делает файл исполняемым
+./myscript - запуск скрипта
+cat >> myscript - запись в файл
+echo - вывод текста
+
+
+#!/bin/bash - всегда вначале скрипта
+echo "The current directory is:"
+pwd
+echo "The user logged in is:"
+whoami
+
+
+Переменные:
+$HOME - переменная
+Обращение к переменным идет по значку доллара
+grade=5
+echo “This is grade $grade”
+var1=$(( 5 + 5 ))
+mydir=$(pwd)
+
+
+Условия:
+#!/bin/bash
+user=anotherUser
+if grep $user /etc/passwd
+then
+echo "The user $user Exists"
+else
+echo "The user $user doesn’t exist"
+fi
+
+
+
+
+n1 -eq n2 Возвращает истинное значение, если n1 равно n2.
+n1 -ge n2 Возвращает истинное значение, если n1 больше или равно n2.
+n1 -gt n2 Возвращает истинное значение, если n1 больше n2.
+n1 -le n2 Возвращает истинное значение, если n1 меньше или равно n2.
+n1 -lt n2 Возвращает истинное значение, если n1 меньше n2.
+n1 -ne n2 Возвращает истинное значение, если n1 не равно n2.
+vall = 6
+[ $val1 -gt 5 ]
+
+
+Сравнение строк:
+str1 = str2 Проверяет строки на равенство, возвращает истину, если строки идентичны.
+str1 != str2 Возвращает истину, если строки не идентичны.
+str1 < str2 Возвращает истину, если str1 меньше, чем str2.
+str1 > str2 Возвращает истину, если str1 больше, чем str2.
+-n str1 Возвращает истину, если длина str1 больше нуля.
+-z str1 Возвращает истину, если длина str1 равна нулю.
+
+
+Оператор case:
+#!/bin/bash
+printf ’Which Linux distribution do you know? ’
+read DISTR
+case $DISTR in ubuntu)
+echo "I know ubuntu." ;;
+centos|rhel)
+echo " I know it too." ;;
+windows)
+echo "Very funny." ;;
+*)
+echo "I don’t know it." ;;
+esac
+
+
+Цикл for:
+
+
+for var in first second third fourth fifth
+do
+echo The  $var item
+done
+
+
+Цикл While:
+
+
+#!/bin/bash
+var1=5
+while [ $var1 -gt 0 ]
+do
+echo $var1
+var1=$[ $var1 - 1 ]
+done
+
+
+
+
+Работа с аргументами ./myscript 1 2 3 4 5
+#!/bin/bash
+echo "My name: $0"
+echo "Total number of arguments: $#"
+echo "Argument 1: $1"
+echo "Argument 2: $2"
+echo "Argument 3: $3"
+
+
+Параметры ХУЙНИ
+-a Вывести все объекты.
+-c Произвести подсчёт.
+-d Указать директорию.
+-e Развернуть объект.
+-f Указать файл, из которого нужно прочитать данные.
+-h Вывести справку по команде.
+-i Игнорировать регистр символов.
+-l Выполнить полноформатный вывод данных.
+-n Использовать неинтерактивный (пакетный) режим.
+-o Позволяет указать файл, в который нужно перенаправить вывод.
+-q Выполнить скрипт в quiet-режиме.
+-r Обрабатывать папки и файлы рекурсивно.
+-s Выполнить скрипт в silent-режиме.
+-v Выполнить многословный вывод.
+-x Исключить объект.
+-y Ответить «yes» на все вопросы.
+
+
+Ссылки:
+ln sourceFile Link - жесткая ссылка
+ln -s sourceFile Link - символическая ссылка
+rmdir
+unlink
